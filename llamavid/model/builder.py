@@ -38,9 +38,10 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
         )
     else:
         kwargs['torch_dtype'] = torch.float16
-
+    print(model_name.lower())
     if 'vid' in model_name.lower():
         # Load LLaMA-VID model
+        print('HELLO')
         if model_base is not None:
             # this may be mm projector only
             print('Loading LLaVA from base model...')
@@ -56,6 +57,7 @@ def load_pretrained_model(model_path, model_base, model_name, load_8bit=False, l
             model = LlavaLlamaAttForCausalLM.from_pretrained(model_path, low_cpu_mem_usage=True, **kwargs)
 
     else:
+        print("HI THERE")
         # Load language model
         if model_base is not None:
             # PEFT model
