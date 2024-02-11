@@ -152,7 +152,8 @@ class LLaMAVIDMetaModel:
                 model_save_path = model_args.model_name_or_path
             else:
                 model_save_path = model_args.model_path
-            model_idx_path = getattr(model_args, 'model_path', model_save_path)
+            # model_idx_path = getattr(model_args, 'model_path', model_save_path)
+            model_idx_path = "/home/kk2720/.cache/huggingface/hub/models--YanweiLi--llama-vid-7b-full-224-video-fps-1/snapshots/8054848315a329e19473ee125b3bf1bd6ee32bfa"
             weight_file = json.load(open(os.path.join(model_idx_path, 'pytorch_model.bin.index.json'), 'r'))['weight_map']
             model_path = set([weight_file[_key] for _key in weight_file if any([_module in _key for _module in trainable_module])])
             att_projector_weights = {}
