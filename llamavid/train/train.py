@@ -835,6 +835,7 @@ class LazySupervisedDataset(Dataset):
             length_list.append(cur_len)
         return length_list
 
+
     def __getitem__(self, i) -> Dict[str, torch.Tensor]:
         attempt, max_attempt = 0, 10
         while attempt < max_attempt:
